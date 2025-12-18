@@ -1,11 +1,11 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
-import connectDb from './config/mongoDB.js'
-import router from './routers/userRouter.js'
+import connectDb from '../config/mongoDB.js'
+import router from '../routers/userRouter.js'
 import cookieParser from 'cookie-parser'
-import oauthRouter from './routers/oauthRouter.js'
-import './config/oauth.js'
+import oauthRouter from '../routers/oauthRouter.js'
+import '../config/oauth.js'
 const app=express()
 const port=process.env.PORT
 //connections
