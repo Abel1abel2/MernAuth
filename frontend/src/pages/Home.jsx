@@ -23,7 +23,7 @@ const Home = () => {
  console.log('token:',token)
   return (
     <div className='w-full h-screen bg-[#313131]'>
-    <div className='w-max-10 h-full mx-15'>
+    <div className='md:w-[90%] w-[90%] h-full md:mx-15 mx-5 '>
       <div className='w-full h-20 flex justify-between items-center'>
         <div className='flex space-x-4'>
       <img className='w-12 h-12' src={img.link}/>
@@ -51,7 +51,7 @@ const Home = () => {
 
       <div className='font-poppins text-white text-left sm:px-85 sm:py-10 py-20 sm:text-[50px] text-[30px]  sm:h-150 h-100 flex flex-col'>
       <h1>Welcome to Mern Auth </h1>
-      <p className='sm:text-[16px] text-[12px] sm:w-170 w-100 my-10  text-left '>This site has full mern-stack authentication including Otp and Oauth using google it modernize, the web developed using mern stack for verification nodeMailer and for oauth google </p>
+      <p className='sm:text-[16px] text-[12px] sm:w-170 w-90 sm:my-10 my-5  text-left '>This site has full mern-stack authentication including Otp and Oauth using google it modernize, the web developed using mern stack for verification nodeMailer and for oauth google </p>
       <img src={img.pc} className='w-[700px] h-[220px] rounded-[25px]'/>
       <Link to='/login'>
       <button className='w-50 py-3  mt-10 sm:mx-60 mx-20 rounded bg-[#9CFC97] text-[24px] cursor-pointer text-[#313030]'>Get Start</button>
