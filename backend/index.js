@@ -36,7 +36,7 @@ app.use(cors({
 // Crucial: Handle preflight (OPTIONS) requests before any routes
 app.use((req, res, next) => {
   if (req.method === 'OPTIONS') {
-    return cors()(req, res, next);
+    return res.sendStatus(200); // Instantly approves the preflight check
   }
   next();
 }); 
