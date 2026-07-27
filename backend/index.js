@@ -34,7 +34,12 @@ app.use(cors({
 }));
 
 // Crucial: Handle preflight (OPTIONS) requests before any routes
-app.options('*', cors()); 
+app.use((req, res, next) => {
+  if (req.method === 'OPTIONS') {
+    return cors()(req, res, next);
+  }
+  next();
+}); 
 
 app.use(cookieParser())
 
