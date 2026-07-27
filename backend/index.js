@@ -13,7 +13,7 @@ connectDb()
 
 //thirdparty middlewares
 app.use(express.json())
-const allowedOrigin=['http://localhost:5173','https://mern-auth-frontend-silk.vercel.app']
+const allowedOrigin=['http://localhost:5173','https://mern-auth-frontend-c3kiyprro-abels-projects-867993e4.vercel.app']
 app.use(cors({origin:allowedOrigin,credentials:true}))
 app.use(cookieParser())
 
