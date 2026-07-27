@@ -14,33 +14,7 @@ connectDb()
 //thirdparty middlewares
 app.use(express.json())
 
-const allowedOrigins = [
-  
-  'https://mern-auth-frontend-silk.vercel.app' 
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-   
-    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
-}));
-
-// Crucial: Handle preflight (OPTIONS) requests before any routes
-app.use((req, res, next) => {
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200); // Instantly approves the preflight check
-  }
-  next();
-}); 
-
+app.use(cors())
 app.use(cookieParser())
 
 //custome middlewares
