@@ -13,8 +13,29 @@ connectDb()
 
 //thirdparty middlewares
 app.use(express.json())
-const allowedOrigin=['http://localhost:5173','https://mern-auth-frontend-c3kiyprro-abels-projects-867993e4.vercel.app']
-app.use(cors({origin:allowedOrigin,credentials:true}))
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://mern-auth-frontend-silk.vercel.app' 
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+   
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
+}));
+
+// Crucial: Handle preflight (OPTIONS) requests before any routes
+app.options('*', cors()); 
+
 app.use(cookieParser())
 
 //custome middlewares
