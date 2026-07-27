@@ -6,9 +6,7 @@ const connectDb=async()=>{
         console.log('db connected')
     })
 
-    await mongoose.connect(`${process.env.MONGODB_URL}/mern-auth`,{
-        family:4
-    });
+    await mongoose.connect(`${process.env.MONGODB_URL}/mern-auth`,{family: 4});
 
 }
 

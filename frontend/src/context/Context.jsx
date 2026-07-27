@@ -6,13 +6,21 @@ const GlobalContextProvider=({children})=>{
     
     const [loginStatus,setLoginStatus]=useState('')
     const [token,setToken]=useState(null)
-
+     const updateToken = (newToken) => {
+    if (newToken) {
+      localStorage.setItem('token', newToken);
+      setToken(newToken);
+    } else {
+      localStorage.removeItem('token');
+      setToken('');
+    }
+  };
     const value={
         backendUrl,
         loginStatus,
         setLoginStatus,
         token,
-        setToken
+        setToken:updateToken
     }
     return (
         <GlobalContext.Provider value={value}>

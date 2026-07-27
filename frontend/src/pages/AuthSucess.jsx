@@ -6,7 +6,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router'
 
 const AuthSucess = () => {
-  const {backendUrl}=useContext(GlobalContext)
+  const {backendUrl,setToken}=useContext(GlobalContext)
   const navigate=useNavigate()
 
   useEffect(()=>{
@@ -15,6 +15,7 @@ const AuthSucess = () => {
       const accessToken=params.get('token')
       console.log('token',accessToken)
       if(accessToken){
+        setToken(accessToken)
         localStorage.setItem('token',accessToken)
       }
       try{

@@ -5,7 +5,7 @@ const userAuth = (req, res, next) => {
     // Guard: cookie-parser must be used in app (app.use(cookieParser()))
     console.log('req.headers.cookie', req.headers.cookie)
     const token = req.cookies?.token
-    console.log('cookie token:', token)
+    console.log('cookie token: ', token)
 
     if (!token) {
         console.log('no token found in cookies')

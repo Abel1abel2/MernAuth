@@ -17,7 +17,7 @@ oauthRouter.get('/google/callback',passport.authenticate('google',{session:false
     }
 })
 oauthRouter.get('/me',oAuth,(req,res)=>{
-    res.json({success:true,user:req.user})
+    return res.json({success:true,user:req.user,token:req.token})
     console.log('hello')
 
 })

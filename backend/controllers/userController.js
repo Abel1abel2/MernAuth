@@ -85,7 +85,7 @@ const sendVerification=async (req,res)=>{
     const userId=req.user.id
     const user=await userModel.findById(userId)
     if(!user){
-        console.log('user not found')
+            return res.json({success:false,error:'user not found'})
     }
    
     const otp=String(Math.floor(100000+Math.random()*900000))
@@ -102,7 +102,7 @@ const sendVerification=async (req,res)=>{
     await transporter.sendMail(mailOption)
    return  res.json({success:true,message:'Account verified'})}
     catch(error){
-       return  res.json({success:false,message:error.message})
+       return  res.json({success:false,message:'error occured'})
     }
 }
 
@@ -129,8 +129,8 @@ const verifyEmail=async(req,res)=>{
         }
         user.verificationOtp=''
         user.verificationExp=0
-        user.isVerified=false
-        await user.save
+        user.isVerified=true
+        await user.save()
         return res.json({success:true,message:'successfully verified'})
     }
     catch(error){
